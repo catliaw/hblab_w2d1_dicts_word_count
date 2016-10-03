@@ -17,13 +17,14 @@ def get_word_count(file_name):
     Takes file name argument on the command line following the script name
 
     """
-    
+
     my_file = open(file_name)
     word_count = {}
 
     for line in my_file:
         stripped_line = line.rstrip()
         line_list = stripped_line.split(' ')
+        line_list = [word.lower() for word in line_list]
 
         for word in line_list:
             word_count[word] = word_count.get(word, 0) + 1
